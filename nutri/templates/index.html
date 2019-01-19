@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<a href="/admin">Go to admin page</a>
+	<div>
+		<form method="POST" action="/result">
+			{% for food in food_l %}
+			<input type="radio" name="food">{{ food.name }}<br>
+			{% endfor %}
+			<input type="submit">
+		</form>
+	</div>
+</body>
+</html>
