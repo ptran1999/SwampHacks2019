@@ -5,7 +5,7 @@
 * Python 
 * Flask - The web framework used
 * HTML/CSS
-* SQLite 
+* SQLite - Database management system
 * Spoonacular - Consumed recipe API
   
 
