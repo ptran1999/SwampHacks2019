@@ -21,7 +21,7 @@ def index():
 	return render_template('index.html',food_l=food_l, chosen=chosen)
 
 @app.route('/result', methods=['POST'])
-def result():
+def result(): 
 	food_l = Food.query.filter_by(chosen=True).all()
 	name_l =""
 	for food in food_l:
@@ -38,9 +38,6 @@ def result():
 		arr.append(i['title'])
 	return render_template('result.html', arr=arr, food_l=food_l)
 
-@app.route('/home',methods=['GET','POST'])
-def home():
-	return index()
 
 @app.route('/about',methods=['GET','POST'])
 def about():

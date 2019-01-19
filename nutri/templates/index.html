@@ -4,20 +4,23 @@
 	<title></title>
 </head>
 <body>
-	<a href="/home">Home</a>
-	<a href="/about">About</a>
+	<a href="/">Home</a>
 	<a href="/admin">Administrator</a>
-
+	<a href="/about">About</a>
 	<div>
 		<form method="POST" action="/result">
 			<h1> Available ingredient </h1><br>
 			{% for food in food_l %}
-			<li>{{ food.name }}<a href="{{ url_for('chosen', id= food.id)}}">    Add</a></li>
+			<li>
+				{{ food.name }}<a href="{{ url_for('chosen', id= food.id)}}">    Add</a>
+			</li>
 			{% endfor %}
 
 			<h1> Food picked </h1>
 			{% for food in chosen %}
-			<li>{{ food.name }}<a href="{{ url_for('remove', id=food.id)}}">    Remove</a></li>
+			<li>
+				{{ food.name }}<a href="{{ url_for('remove', id=food.id)}}">    Remove</a>
+			</li>
 			{% endfor %}
 
 			<input type="submit" name="submit_button">
