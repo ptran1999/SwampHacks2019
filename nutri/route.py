@@ -23,7 +23,10 @@ def index():
 @app.route('/result', methods=['POST'])
 def result():
 	food_l = Food.query.filter_by(chosen=True).all()
-	response = requests.get("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients=apple",
+	name_l =""
+	for food in food_l:
+		name_l += food.name +","
+	response = requests.get("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=10&ranking=1&ingredients=" + name_l,
 	headers=
 		{
 		"X-RapidAPI-Key": "s6HusAzP3HmshznEWUR6xxLqFEJip1th9jVjsnLjtd8NUEMj6d"
