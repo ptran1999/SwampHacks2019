@@ -18,7 +18,7 @@ def index():
 	food_l = Food.query.filter_by(chosen=False).all()
 	chosen = Food.query.filter_by(chosen=True).all()
 
-	return render_template('index.html', food_l=food_l, chosen=chosen)
+	return render_template('index.html',food_l=food_l, chosen=chosen)
 
 @app.route('/result', methods=['POST'])
 def result():
@@ -37,6 +37,14 @@ def result():
 	for i in json_object:
 		arr.append(i['title'])
 	return render_template('result.html', arr=arr, food_l=food_l)
+
+@app.route('/home',methods=['GET','POST'])
+def home():
+	return index()
+
+@app.route('/about',methods=['GET','POST'])
+def about():
+	return render_template('about.html')
 
 @app.route('/admin',methods=['GET', 'POST'])
 def admin():
