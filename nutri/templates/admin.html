@@ -4,11 +4,16 @@
 	<title></title>
 </head>
 <body>
-	Import food
-	Name : <input type="text" name="Name">
-	Calories per unit : <input type="text" name="cal">
-	Protein per unit : <input type="text" name="protein">
-	Fat per unit : <input type="text" name="fat">
-	Carbohydrate per unit : <input type="text" name="carb">
+	<form method="POST" action="http://localhost:5000">
+		Import food<br>
+		Name : <input type="text" name="food_name"><br>
+		Image : <input type="text" name="Image"><br>
+		Calories per unit : <input type="text" name="cal"><br>
+		Protein per unit : <input type="text" name="protein"><br>
+		Fat per unit : <input type="text" name="fat"><br>
+		Carbohydrate per unit : <input type="text" name="carb"><br>
+
+		<input type="submit" name="Import">
+	</form>
 </body>
 </html>
