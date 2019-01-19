@@ -8,6 +8,7 @@ class Food(db.Model):
 	protein_per_unit = db.Column(db.Integer)
 	fat_per_unit = db.Column(db.Integer)
 	carb_per_unit = db.Column(db.Integer)
+	chosen = db.Column(db.Boolean, default=False)
 
 	def __repr__(self):
-		return f"Food('{self.name}','{self.image_file}','{self.cal_per_unit}','{self.protein_per_unit}','{self.fat_per_unit}','{self.carb_per_unit}')"
+		return f"Food('{self.name}','{self.image_file}','{self.cal_per_unit}','{self.protein_per_unit}','{self.fat_per_unit}','{self.carb_per_unit}','{self.chosen}')"

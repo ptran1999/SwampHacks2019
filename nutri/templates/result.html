@@ -4,6 +4,15 @@
 	<title></title>
 </head>
 <body>
-	This is the result page
+	Your ingredients: <br>
+	{% for food in food_l %}
+		<li>{{ food.name }}</li>
+	{% endfor %}
+	
+	<br>
+	Here are some recipes for you: <br>
+	{% for i in arr %}
+		{{i}}<br>
+	{% endfor %}
 </body>
 </html>
