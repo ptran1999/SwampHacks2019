@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href = "static/temp.css" type="text/css">
+	<link rel="stylesheet" href = "static/main.css" type="text/css">
 	<meta charset="UTF-8">
 	<title>Get Buff, Get Cuffed</title>
 </head>
@@ -36,8 +36,7 @@
 			<li>
 
 				<!--{{ food.image_file}}<a href="{{ url_for('chosen', id=food.id)}}"> -->
-				<img class = "fruit-img" src="{{ url_for('static', filename='pictures/' + food.image_file) }}" width = 50 height=50>
-				 	{{ food.name }} 
+				<img class = "fruit-img" src="{{ url_for('static', filename='pictures/' + food.image_file) }}" width = 50 height=50> {{ food.name }} 
 				<a href="{{ url_for('chosen', id= food.id)}}">    <b>Add</b> </a>
 			</li>
 			{% endfor %}

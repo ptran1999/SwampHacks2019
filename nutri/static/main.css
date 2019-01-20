@@ -5,8 +5,8 @@
 }
 
 .fruit-img {
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 75px;
   margin-right: 20px;
   margin-bottom: 16px;
 }
@@ -32,7 +32,7 @@ body {
 
 
 .ingredients-heading{
-	font-family: Helvetica;
+	font-family: Times;
 }
 
 #navigate
@@ -75,14 +75,6 @@ body {
 
 #middle-align{
 	float: left;
-}
-
-#right-align{
-	float: right;
-}
-
-li{
-	list-style-type: none;
 }
 
 
