@@ -1,5 +1,5 @@
 # Get Buff, Get Cuffed
-**Get Buff, Get Cuffed** is a web application built using Flask, Python, HTML, CSS, and SQLite to tell *you* how many units of each ingredient you choose to cook your favorite meals! In addition, it gives you some recipes to cook from those
+**Get Buff, Get Cuffed** is a web application built using Flask, Python, HTML, CSS, and SQLite to tell *you* recipes created from the ingredients you choose!
 
 ## Built with
 * Python 
