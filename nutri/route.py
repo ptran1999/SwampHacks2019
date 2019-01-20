@@ -5,7 +5,8 @@ import json
 from nutri import app, db
 from nutri.models import Food
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
+@app.route('/index', methods=['GET', 'POST'])
 def index():
 	if request.method == 'POST':
 		temp = Food(name=request.form['food_name'], 

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 	<title>Meal of the day</title>
 	</head>
@@ -10,20 +8,18 @@
 	<body>
 	<!-- Title -->
 	<div id="title">
-		<h1>Get Buff, Get Cuffed</h1>
-		<a href="index.html">
-			<img src="/static/Pictures/HomePage.jpg" id="home_pic" width=220 height=200>
-		</a>
+		<h1 id="title1">Get Buff, Get Cuffed</h1>
+			<img src="/static/Pictures/HomePage.jpg" id="home-pic" width=200 height=200>
 		
-	</div>
+	
 	<!-- Navigation bar -->
-	<div>
 		<ul id="navigation-bar">	
 			<li><a href="/">Home</a></li>
 			<li><a href="/about">About</a></li>
 			<li><a href="/admin">Administrator</a></li>
 		</ul>
 	</div>
-	{% block content %}{% endblock %}
+	{% block content %}{% endblock content%}
+
 	</body>
 </html>

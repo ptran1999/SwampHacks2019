@@ -1,40 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<link rel="stylesheet" href = "static/main.css" type="text/css">
-	<meta charset="UTF-8">
-	<title>Get Buff, Get Cuffed</title>
-</head>
-<body>
-	<div class = "links">
-		<div id="title">
-		<a href="index.html"><img src="https://png.pngtree.com/element_origin_min_pic/16/06/14/20575ff8bfa85be.jpg" alt="Buff boi" width=100 height=100>
-		</a>
-		<h1>Get Buff, Get Cuffed</h1>
-		<div class ="box blue-box">
-		<a class = "box blue-box" href="/">Home</a>
-		<a href="/about">About</a>
-		<a href="/admin">Administrator</a>
-		</div>
-	</div>
-
-		<div id="content">
-			<div id="navigation">	
-			</div>	
-			
-			</div>
-		</div>
-	</div>
-
+{% extends "layout.html" %}
+{% block content %}
 	<div>
-
 		<form method="POST" action="/result">
 			<div id="float-left">
 			<h1 class = "ingredients-heading"> Ingredients </h1><br>
 			{% for food in food_l %}		
 			<li>
-				<img class = "fruit-img" src="{{ url_for('static', filename='pictures/' + food.image_file) }}" width = 50 height=50> {{ food.name }} 
-				<a href="{{ url_for('chosen', id= food.id)}}">    <b>Add</b> </a>
+				<a href="{{ url_for('chosen', id= food.id)}}">
+					<img class = "fruit-img" src="{{ url_for('static', filename='pictures/' + food.image_file) }}" width = 50 height=50> 
+				</a>
+				<b>{{ food.name }}</b> 
 			</li>
 			{% endfor %}
 			</div>
@@ -43,9 +18,11 @@
 			<h1 class = "ingredients-heading"> Ingredients picked </h1>
 			{% for food in chosen %}
 			<li>
-				<img class = "fruit-img" src="{{ url_for('static', filename='pictures/' + food.image_file) }}" width = 50 height=50>
-			     	{{ food.name }} 
-				<a href="{{ url_for('remove', id=food.id)}}">    <b>Remove</b></a>
+				<a href="{{ url_for('remove', id=food.id)}}">
+					<img class = "fruit-img" src="{{ url_for('static', filename='pictures/' + food.image_file) }}" width = 50 height=50>
+			     	
+				</a>
+				<b>{{ food.name }}</b>
 			</li>
 			{% endfor %}
 			</div>
@@ -60,5 +37,4 @@
 	<div id=copyright>
 	Copyright &copy; 2019 csbois.
 	</div>
-</body>
-</html>
+{% endblock content%}
