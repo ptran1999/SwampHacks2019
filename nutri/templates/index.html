@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href = "static/style.css" type="text/css">
+	<link rel="stylesheet" href = "static/temp.css" type="text/css">
 	<meta charset="UTF-8">
 	<title>Get Buff, Get Cuffed</title>
 </head>
@@ -13,7 +13,7 @@
 		<h1>Get Buff, Get Cuffed</h1>
 		<div class ="box blue-box">
 		<a class = "box blue-box" href="/">Home</a>
-		<a href="/about">About</a>
+		<a href="/About">About</a>
 		<a href="/admin">Administrator</a>
 		</div>
 	</div>
@@ -29,27 +29,35 @@
 	<div>
 
 		<form method="POST" action="/result">
+			<div id="float-left">
 			<h1 class = "ingredients-heading"> Ingredients </h1><br>
 			{% for food in food_l %}	
+			
 			<li>
 
 				<!--{{ food.image_file}}<a href="{{ url_for('chosen', id=food.id)}}"> -->
 				<img class = "fruit-img" src="{{ url_for('static', filename='pictures/' + food.image_file) }}" width = 50 height=50>
 				 	{{ food.name }} 
-				<a href="{{ url_for('chosen', id= food.id)}}">    Add </a>
+				<a href="{{ url_for('chosen', id= food.id)}}">    <b>Add</b> </a>
 			</li>
 			{% endfor %}
+			</div>
 
-			<h1> Ingredients picked </h1>
+			<div id="middle-align">
+			<h1 class = "ingredients-heading"> Ingredients picked </h1>
 			{% for food in chosen %}
 			<li>
 				<img class = "fruit-img" src="{{ url_for('static', filename='pictures/' + food.image_file) }}" width = 50 height=50>
 			     	{{ food.name }} 
-				<a href="{{ url_for('remove', id=food.id)}}">    Remove</a>
+				<a href="{{ url_for('remove', id=food.id)}}">    <b>Remove</b></a>
 			</li>
 			{% endfor %}
-			Calorie(maximum): <input type="text" name="Cal"><br>
-			<input type="submit" name="submit_button">
+			</div>
+		
+			<div id="middle-align">
+			<h1 class = "ingredients-heading"> Click to generate your recipe! </h2>
+			<input type="submit" name="submit_button" value ="Generate Recipe">
+			</div>
 		</form>
 	</div>
 

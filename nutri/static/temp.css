@@ -32,7 +32,7 @@ body {
 
 
 .ingredients-heading{
-	font-family: sans-serif;
+	font-family: Helvetica;
 }
 
 #navigate
@@ -68,3 +68,13 @@ body {
 			{
 				background-color: #cce6ff;
 			}
+
+#float-left{
+	float: left;
+}
+
+#middle-align{
+	float: left;
+}
+
+
