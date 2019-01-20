@@ -4,6 +4,13 @@
 	text-align: center;
 }
 
+.fruit-img {
+  height: 100px;
+  width: 100px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
 #container {
 	width: 800px;
 	margin-left: auto;
