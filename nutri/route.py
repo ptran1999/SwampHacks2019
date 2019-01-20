@@ -18,7 +18,6 @@ def index():
 		db.session.commit()
 	food_l = Food.query.filter_by(chosen=False).all()
 	chosen = Food.query.filter_by(chosen=True).all()
-
 	return render_template('index.html',food_l=food_l, chosen=chosen)
 
 @app.route('/result', methods=['POST'])
@@ -33,11 +32,7 @@ def result():
 		"X-RapidAPI-Key": "s6HusAzP3HmshznEWUR6xxLqFEJip1th9jVjsnLjtd8NUEMj6d"
 		}
 	)
-	#arr=[]
 	json_object = json.loads(response.text)
-	#for i in json_object:
-	#	arr.append(i['title'])
-	total_cal = request.form['Cal']
 	return render_template('result.html', arr=json_object, food_l=food_l)
 
 

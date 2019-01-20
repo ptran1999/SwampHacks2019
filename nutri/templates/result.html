@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<a href="/">Home</a>
-	<a href="/about">About</a>
-	<a href="/admin">Administrator</a><br>
+{% extends "layout.html" %}
+{% block content %}
 
 	Your ingredients: <br>
 	{% for food in food_l %}
@@ -18,5 +11,4 @@
 	{% for i in arr %}
 		{{i['title']}}<a href="{{ url_for('instruct', id = i['id'])}}"> More info</a><br>
 	{% endfor %}
-</body>
-</html>
+{% endblock content%}
