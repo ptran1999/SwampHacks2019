@@ -6,9 +6,11 @@
 			<div id="float-left">
 			<h1 class = "ingredients-heading"> Ingredients </h1><br>
 			{% for food in food_l %}	
+			<li>
 				<img class = "fruit-img" src="{{ url_for('static', filename='pictures/' + food.image_file) }}" width = 50 height=50> {{ food.name }} 
 				<a href="{{ url_for('chosen', id= food.id)}}"><b>Add</b>
 				</a>
+			</li>
 			{% endfor %}
 			</div>
 
