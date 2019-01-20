@@ -1,14 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
 
-	Your ingredients: <br>
+	<fieldset>
+	<LEGEND>	Your ingredients: </LEGEND>
 	{% for food in food_l %}
 		<li>{{ food.name }}</li>
 	{% endfor %}
+	</fieldset>
 	
 	<br>
-	Here are some recipes for you: <br>
+	<fieldset>
+	<LEGEND>Here are some recipes for you: <br></LEGEND>
 	{% for i in arr %}
 		{{i['title']}}<a href="{{ url_for('instruct', id = i['id'])}}"> More info</a><br>
 	{% endfor %}
+	</fieldset>
 {% endblock content%}
