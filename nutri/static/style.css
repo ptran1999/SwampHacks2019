@@ -1,0 +1,25 @@
+#title {
+	background-color: #E95E3F;
+	font-family: cursive;
+	text-align: center;
+}
+
+#container {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+}
+
+#content {
+	padding: 10px
+}
+
+body {
+	background-color: white;
+}
+
+#copyright {
+	clear:both;
+}
+
