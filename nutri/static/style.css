@@ -30,6 +30,41 @@ body {
 	clear:both;
 }
 
+
 .ingredients-heading{
 	font-family: 'Roboto';font-size: 14px;
 }
+
+#navigate
+			{
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				background-color: #4da6ff;
+				width: 100%;
+				border-top-left-radius: 10px;
+				border-top-right-radius: 10px;
+			}
+
+#navigate a
+			{
+				float: left;
+				display: block;
+				color: black;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+				border-right: 3px solid #0059b3;
+				
+			}
+
+#navigate a:hover:not(.active)
+			{
+				background-color: #cce6ff;
+			}
+
+.active
+			{
+				background-color: #cce6ff;
+			}
