@@ -3,19 +3,22 @@
 	<div>
 		<form method="POST" action="/result">
 			<div id="float-left">
-			<h1 class = "ingredients-heading"> Ingredients </h1><br>
-			{% for food in food_l %}		
-			<li>
+			<fieldset>
+			<LEGEND><h1 class = "ingredients-heading"> Ingredients</h1></LEGEND>
+				{% for food in food_l %}		
+				<li>
 				<a href="{{ url_for('chosen', id= food.id)}}">
 					<img class = "fruit-img" src="{{ url_for('static', filename='pictures/' + food.image_file) }}" width = 50 height=50> 
 				</a>
 				<b>{{ food.name }}</b> 
-			</li>
+				</li>
 			{% endfor %}
 			</div>
+			</fieldset>
 
-			<div id="middle-align">
-			<h1 class = "ingredients-heading"> Ingredients picked </h1>
+			<div id="float-left">
+			<fieldset>
+			<LEGEND><h1 class = "ingredients-heading"> Ingredients picked </h1></LEGEND>
 			{% for food in chosen %}
 			<li>
 				<a href="{{ url_for('remove', id=food.id)}}">
@@ -25,6 +28,7 @@
 				<b>{{ food.name }}</b>
 			</li>
 			{% endfor %}
+			</fieldset>
 			</div>
 		
 			<div id="middle-align">
