@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href = "main.css" type = "text/css">
 	<title></title>
 </head>
 <body>
-	<a href="/login">Admin Login</a>
+	<a href="/">Home</a>
+	<a href="/about">About</a>
+	<a href="/admin">Administrator</a>
 	<div>
 		<form method="POST" action="/result">
-			{% for food in food_l %}
-			<input type="radio" name="food">{{ food.name }}<br>
+			<h1> Ingredients </h1><br>
+			{% for food in food_l %}	
+			<li>
+				{{ food.name }}
+				<!--{{ food.image_file}}<a href="{{ url_for('chosen', id=food.id)}}"> -->
+				<img class = "fruit-img" src="{{ url_for('static', filename='pictures/' + food.image_file) }}" width = 50 height=50>
+				<a href="{{ url_for('chosen', id= food.id)}}"> Add </a>
+			</li>
 			{% endfor %}
-			<input type="submit">
+
+			<h1> Ingredients picked </h1>
+			{% for food in chosen %}
+			<li>
+				{{ food.name }}
+				<img class = "fruit-img" src="{{ url_for('static', filename='pictures/' + food.image_file) }}" width = 50 height=50>
+				<a href="{{ url_for('remove', id=food.id)}}">    Remove</a>
+			</li>
+			{% endfor %}
+
+			<input type="submit" name="submit_button">
 		</form>
 	</div>
 	<div>

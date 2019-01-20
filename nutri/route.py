@@ -1,4 +1,6 @@
-from flask import render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for
+import requests
+import json
 from nutri import app, db
 from nutri.models import Food
 
@@ -13,13 +15,48 @@ def index():
 				carb_per_unit=request.form['carb'])
 		db.session.add(temp)
 		db.session.commit()
-	food_l = Food.query.all()
-	return render_template('index.html', food_l=food_l)
+	food_l = Food.query.filter_by(chosen=False).all()
+	chosen = Food.query.filter_by(chosen=True).all()
+
+	return render_template('index.html',food_l=food_l, chosen=chosen)
 
 @app.route('/result', methods=['POST'])
-def result():
-	return render_template('result.html')
+def result(): 
+	food_l = Food.query.filter_by(chosen=True).all()
+	name_l =""
+	for food in food_l:
+		name_l += food.name +","
+	response = requests.get("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=10&ranking=1&ingredients=" + name_l,
+	headers=
+		{
+		"X-RapidAPI-Key": "s6HusAzP3HmshznEWUR6xxLqFEJip1th9jVjsnLjtd8NUEMj6d"
+		}
+	)
+	arr=[]
+	json_object = json.loads(response.text)
+	for i in json_object:
+		arr.append(i['title'])
+	return render_template('result.html', arr=arr, food_l=food_l)
+
+
+@app.route('/about',methods=['GET','POST'])
+def about():
+	return render_template('about.html')
 
 @app.route('/admin',methods=['GET', 'POST'])
 def admin():
 	return render_template('admin.html')
+
+@app.route('/chosen/<id>')
+def chosen(id):
+	food = Food.query.filter_by(id=int(id)).first()
+	food.chosen = True
+	db.session.commit()
+	return redirect(url_for('index'))
+
+@app.route('/remove/<id>')
+def remove(id):
+	food = Food.query.filter_by(id=int(id)).first()
+	food.chosen = False
+	db.session.commit()
+	return redirect(url_for('index'))
