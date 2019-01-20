@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash, session, abort
+import os
 import requests
 import json
 from nutri import app, db
@@ -45,7 +46,21 @@ def about():
 
 @app.route('/admin',methods=['GET', 'POST'])
 def admin():
-	return render_template('admin.html')
+	return render_template('login.html')
+	
+@app.route('/login', methods=['POST'])
+def do_admin_login():
+	if request.form['password'] == 'password' and request.form['username'] == 'admin':
+		session['logged_in'] = True
+		return render_template('admin.html')
+	else:
+		flash('wrong password or username')
+		return render_template('login.html')
+		
+@app.route('/admin.html')
+def logout():
+	session['logged_in'] = False
+	return home()
 
 @app.route('/chosen/<id>')
 def chosen(id):
@@ -60,3 +75,4 @@ def remove(id):
 	food.chosen = False
 	db.session.commit()
 	return redirect(url_for('index'))
+	
