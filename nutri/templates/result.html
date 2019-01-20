@@ -16,7 +16,7 @@
 	<br>
 	Here are some recipes for you: <br>
 	{% for i in arr %}
-		{{i}}<br>
+		{{i['title']}}<a href="{{ url_for('instruct', id = i['id'])}}"> More info</a><br>
 	{% endfor %}
 </body>
 </html>

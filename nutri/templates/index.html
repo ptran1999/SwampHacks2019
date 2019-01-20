@@ -8,8 +8,10 @@
 	<a href="/admin">Administrator</a>
 	<a href="/about">About</a>
 	<div>
-		<form method="POST" action="/result">
+			</form>
+			<form method="POST" action="/result">
 			<h1> Available ingredient </h1><br>
+			<!-- Ingredient list -->
 			{% for food in food_l %}
 			<li>
 				{{ food.name }}<a href="{{ url_for('chosen', id= food.id)}}">    Add</a>
@@ -19,15 +21,14 @@
 			<h1> Food picked </h1>
 			{% for food in chosen %}
 			<li>
-				{{ food.name }}<a href="{{ url_for('remove', id=food.id)}}">    Remove</a>
+				{{ food.name }}
+				<a href="{{ url_for('remove', id=food.id)}}">    Remove</a>
 			</li>
 			{% endfor %}
-
+			Calorie(maximum): <input type="text" name="Cal"><br>
 			<input type="submit" name="submit_button">
 		</form>
 	</div>
-	<div>
-			Calorie(maximum): <input type="text" name="Cal"><br>
-	</div>
+	
 </body>
 </html>

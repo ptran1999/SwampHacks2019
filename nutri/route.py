@@ -32,11 +32,12 @@ def result():
 		"X-RapidAPI-Key": "s6HusAzP3HmshznEWUR6xxLqFEJip1th9jVjsnLjtd8NUEMj6d"
 		}
 	)
-	arr=[]
+	#arr=[]
 	json_object = json.loads(response.text)
-	for i in json_object:
-		arr.append(i['title'])
-	return render_template('result.html', arr=arr, food_l=food_l)
+	#for i in json_object:
+	#	arr.append(i['title'])
+	total_cal = request.form['Cal']
+	return render_template('result.html', arr=json_object, food_l=food_l)
 
 
 @app.route('/about',methods=['GET','POST'])
@@ -60,3 +61,15 @@ def remove(id):
 	food.chosen = False
 	db.session.commit()
 	return redirect(url_for('index'))
+
+@app.route('/instruct/<id>')
+def instruct(id):
+	response = requests.get("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/"+id+"/information",
+   	headers={
+     	"X-RapidAPI-Key": "s6HusAzP3HmshznEWUR6xxLqFEJip1th9jVjsnLjtd8NUEMj6d"
+   	}
+	)
+	recipe = json.loads(response.text)['instructions']
+	return render_template('instruct.html', recipe=recipe)
+
+

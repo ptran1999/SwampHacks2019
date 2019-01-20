@@ -1,6 +1,7 @@
 from nutri import db
 
 class Food(db.Model):
+
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(50), unique=True, nullable=False)
 	image_file = db.Column(db.String(50), unique=True, nullable=False, default='static/pictures/default.png')
