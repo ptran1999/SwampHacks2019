@@ -1,12 +1,12 @@
 #title {
-	background-color: white;
+	background-color: #E95E3F;
 	font-family: cursive;
 	text-align: center;
 }
 
 .fruit-img {
-  height: 80px;
-  width: 75px;
+  height: 100px;
+  width: 100px;
   margin-right: 20px;
   margin-bottom: 16px;
 }
@@ -16,7 +16,6 @@
 	margin-left: auto;
 	margin-right: auto;
 	background-color: white;
-	border-radius: 30px;
 }
 
 #content {
@@ -24,7 +23,7 @@
 }
 
 body {
-	background-color: #ffffcc;
+	background-color: white;
 }
 
 #copyright {
@@ -32,21 +31,23 @@ body {
 }
 
 
-#navigation_bar
+.ingredients-heading{
+	font-family: Helvetica;
+}
+
+#navigate
 			{
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
 				overflow: hidden;
-				background-color: #ff6600;
+				background-color: #4da6ff;
 				width: 100%;
 				border-top-left-radius: 10px;
 				border-top-right-radius: 10px;
-				border-bottom-left-radius: 10px;
-				border-bottom-right-radius: 10px;
 			}
 
-#navigation-bar a
+#navigate a
 			{
 				float: left;
 				display: block;
@@ -54,28 +55,17 @@ body {
 				text-align: center;
 				padding: 14px 16px;
 				text-decoration: none;
-				border-right: 3px solid #800000;
+				border-right: 3px solid #0059b3;
 				
 			}
 
-#navigation-bar a:hover:not(.active)
+#navigate a:hover:not(.active)
 			{
-				background-color: #ffcc00;
+				background-color: #cce6ff;
 			}
 
 .active
 			{
-				background-color: #ffcc00;
-			}
-#home_pic
-			{
-				display: block;
-				border-radius: 90%;
-				border-style: outset;
-				border-color: #ffcc00;
-				border-width: 5px;
-				position: center;
-			}
 				background-color: #cce6ff;
 			}
 
@@ -86,3 +76,13 @@ body {
 #middle-align{
 	float: left;
 }
+
+#right-align{
+	float: right;
+}
+
+li{
+	list-style-type: none;
+}
+
+

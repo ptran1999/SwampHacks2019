@@ -1,25 +1,32 @@
 {% extends "layout.html" %}
 {% block content %}
+
 	<div>
 		<form method="POST" action="/result">
-			<h1> Ingredients </h1><br>
+			<div id="float-left">
+			<h1 class = "ingredients-heading"> Ingredients </h1><br>
 			{% for food in food_l %}	
-			<li>
-				<img class = "fruit-img" src="{{ url_for('static', filename='pictures/' + food.image_file) }}" width = 50 height=50>
-				 	{{ food.name }} 
-				<a href="{{ url_for('chosen', id= food.id)}}">    Add </a>
-			</li>
+				<img class = "fruit-img" src="{{ url_for('static', filename='pictures/' + food.image_file) }}" width = 50 height=50> {{ food.name }} 
+				<a href="{{ url_for('chosen', id= food.id)}}"><b>Add</b>
+				</a>
 			{% endfor %}
+			</div>
 
-			<h1> Ingredients picked </h1>
+			<div id="middle-align">
+			<h1 class = "ingredients-heading"> Ingredients picked </h1>
 			{% for food in chosen %}
 			<li>
 				<img class = "fruit-img" src="{{ url_for('static', filename='pictures/' + food.image_file) }}" width = 50 height=50>
 			     	{{ food.name }} 
-				<a href="{{ url_for('remove', id=food.id)}}">    Remove</a>
+				<a href="{{ url_for('remove', id=food.id)}}">    <b>Remove</b></a>
 			</li>
 			{% endfor %}
-			<input type="submit" name="submit_button">
+			</div>
+		
+			<div id="middle-align">
+			<h1 class = "ingredients-heading"> Click to generate your recipe! </h2>
+			<input type="submit" name="submit_button" value ="Generate Recipe">
+			</div>
 		</form>
 	</div>
 
